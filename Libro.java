@@ -54,7 +54,7 @@ public class Libro {
     }
     
     public void setNumeroReferenciaLibro(String numeroReferenciaLibro){
-        if (numeroReferencia.length() <3){
+        if (numeroReferenciaLibro.length() < 3){
             System.out.println("Numero caracteres insuficiente");
         }
         else {
@@ -63,18 +63,18 @@ public class Libro {
     }
 
     public String getDetalles(){
-        if (numeroReferencia.length() >= 1) {
-            String detalles;
-            detalles = autor + ", " + titulo + ", " + numeroPaginas +" págs, " + 
-            numeroReferencia + "," + vecesPrestado + ".";
-            return detalles;
+        String detalles;
+        String ref;
+        detalles = autor + ", " + titulo + ", " + numeroPaginas +" págs, " + vecesPrestado
+        + ",";
+        if (numeroReferencia.length() >= 3) {
+            ref = numeroReferencia;
         }
         else {
-            String detalles;
-            detalles = autor + ", " + titulo + ", " + numeroPaginas +" págs, " + "ZZZ" 
-            + "," + vecesPrestado + ".";
-            return detalles;
-        }       
+            ref = " ZZZ";
+        }     
+        detalles = detalles + ref + ".";
+        return detalles;
     }
 
     public void imprimeAutor(){
@@ -86,15 +86,17 @@ public class Libro {
     }
 
     public void impimirDetalles (){
-        if (numeroReferencia.length() >= 1) {
-            System.out.println("Título: "+ titulo +", Autor: " + autor + 
-                ", Páginas: "+ numeroPaginas + "Numero de referencia: " + numeroReferencia
-                + ", Veces prestado: " + vecesPrestado + ".");
+        String datos;
+        String ref;
+        datos = ("Título: "+ titulo +", Autor: " + autor + ", Páginas: "+ numeroPaginas 
+        + ", Veces prestado: " + vecesPrestado + ", ");
+        if (numeroReferencia.length() >= 3) {
+            ref = numeroReferencia;
         }
         else {
-            System.out.println("Título: "+ titulo +", Autor: " + autor + 
-                ", Páginas: "+ numeroPaginas + "Numero de referencia: ZZZ" 
-                + ", Veces prestado: " + vecesPrestado + ".");           
+            ref = "ZZZ";      
         }
+        datos = datos + "Numero referencia: " + ref + ".";
+        System.out.println (datos);
     }
 }    
