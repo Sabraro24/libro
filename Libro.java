@@ -44,7 +44,12 @@ public class Libro {
     }
 
     public void setNumeroReferenciaLibro(String NumeroReferenciaLibro){
-        numeroReferencia = NumeroReferenciaLibro;
+        if (numeroReferencia.length() <3){
+            System.out.println("Numero caracteres insuficiente");
+        }
+        else {
+            numeroReferencia = NumeroReferenciaLibro;
+        }
     }
 
     public String getDetalles(){
